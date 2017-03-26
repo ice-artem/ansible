@@ -1,0 +1,4 @@
+---
+
+httpd_port: 80
+ntpserver: ntp.time.in.ua

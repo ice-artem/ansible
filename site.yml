@@ -1,0 +1,18 @@
+---
+- name: apply the common conf to centos hosts
+  hosts: centos
+  remote_user: ice
+  become: yes
+
+  roles:
+  - common
+
+- name: apply the apache and web roles
+  hosts: centos
+  remote_user: ice
+  become: yes
+
+  roles:
+  - apache
+#  - web
+

@@ -1,0 +1,20 @@
+---
+- hosts: staging_servers
+  become: yes
+  tasks:
+    - name: Add an apt key by id from a keyserver
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 8B48AD6246925553
+
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: Start Apache and Enable it on the boot
+      service: name=apache2 state=started enabled=yes 

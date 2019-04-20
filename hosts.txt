@@ -1,3 +1,28 @@
+192.168.1.101
+192.168.1.102
+
+[staging_1]
+192.168.1.201
+192.168.1.202
+
+[staging_WEB]
+192.168.2.101
+192.168.2.102
+
+[staging_APP]
+192.168.3.101
+192.168.3.102
+
+[staging_ALL:children]
+staging_1
+staging_WEB
+staging_APP
+
+[staging_servers:vars]
+ansible_user=ice
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
 [staging_servers]
-ubuntu-ops    ansible_host=192.168.1.100    ansible_user=ice   ansible_ssh_private_key_file=~/.ssh/id_rsa
-# ansible_pass=
+ubuntu-ops    ansible_host=192.168.1.100    
+
+# ansible_user=ice   ansible_ssh_private_key_file=~/.ssh/id_rsa    ansible_pass=
